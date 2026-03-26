@@ -10,5 +10,7 @@ public final class ConstantsDescriptions {
     public static final String SLEEPLESS_NIGHTS = "Бессонные ночи";
     public static final String CHRONOTYPE = "Хронотип пользователя";
 
-    private ConstantsDescriptions() {}
+    private ConstantsDescriptions() {
+
+    }
 }
