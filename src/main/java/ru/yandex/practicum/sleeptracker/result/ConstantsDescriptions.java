@@ -1,7 +1,7 @@
-package ru.yandex.practicum.sleeptracker;
+package ru.yandex.practicum.sleeptracker.result;
 
 
-public final class AnalysisDescriptions {
+public final class ConstantsDescriptions {
     public static final String TOTAL_SESSIONS = "Всего сессий сна";
     public static final String MIN_DURATION = "Минимальная продолжительность сессии (минуты)";
     public static final String MAX_DURATION = "Максимальная продолжительность сессии (минуты)";
@@ -10,5 +10,5 @@ public final class AnalysisDescriptions {
     public static final String SLEEPLESS_NIGHTS = "Бессонные ночи";
     public static final String CHRONOTYPE = "Хронотип пользователя";
 
-    private AnalysisDescriptions() {}
+    private ConstantsDescriptions() {}
 }

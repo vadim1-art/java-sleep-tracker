@@ -1,4 +1,8 @@
-package ru.yandex.practicum.sleeptracker;
+package ru.yandex.practicum.sleeptracker.functions;
+
+import ru.yandex.practicum.sleeptracker.result.ConstantsDescriptions;
+import ru.yandex.practicum.sleeptracker.result.SleepAnalysisResult;
+import ru.yandex.practicum.sleeptracker.model.SleepingSession;
 
 import java.util.List;
 
@@ -10,6 +14,6 @@ public class MinDurationFunction implements SleepAnalysisFunction {
                 .mapToLong(SleepingSession::getDurationMinutes)
                 .min()
                 .orElse(0);
-        return new SleepAnalysisResult(AnalysisDescriptions.MIN_DURATION, min);
+        return new SleepAnalysisResult(ConstantsDescriptions.MIN_DURATION, min);
     }
 }

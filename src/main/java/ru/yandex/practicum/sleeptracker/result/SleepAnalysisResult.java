@@ -1,9 +1,9 @@
-package ru.yandex.practicum.sleeptracker;
+package ru.yandex.practicum.sleeptracker.result;
 
 
 public class SleepAnalysisResult {
     private final String description;
-    private final Object value;
+    public final Object value;
 
     public SleepAnalysisResult(String description, Object value) {
         this.description = description;

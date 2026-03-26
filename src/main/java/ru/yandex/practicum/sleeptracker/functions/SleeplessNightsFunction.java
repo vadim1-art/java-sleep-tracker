@@ -1,4 +1,8 @@
-package ru.yandex.practicum.sleeptracker;
+package ru.yandex.practicum.sleeptracker.functions;
+
+import ru.yandex.practicum.sleeptracker.result.ConstantsDescriptions;
+import ru.yandex.practicum.sleeptracker.result.SleepAnalysisResult;
+import ru.yandex.practicum.sleeptracker.model.SleepingSession;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,7 +15,7 @@ public class SleeplessNightsFunction implements SleepAnalysisFunction {
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {
         if (sessions.isEmpty()) {
-            return new SleepAnalysisResult(AnalysisDescriptions.SLEEPLESS_NIGHTS, 0);
+            return new SleepAnalysisResult(ConstantsDescriptions.SLEEPLESS_NIGHTS, 0);
         }
 
         LocalDateTime firstStart = sessions.stream()
@@ -40,6 +44,6 @@ public class SleeplessNightsFunction implements SleepAnalysisFunction {
                 })
                 .count();
 
-        return new SleepAnalysisResult(AnalysisDescriptions.SLEEPLESS_NIGHTS, sleeplessNights);
+        return new SleepAnalysisResult(ConstantsDescriptions.SLEEPLESS_NIGHTS, sleeplessNights);
     }
 }

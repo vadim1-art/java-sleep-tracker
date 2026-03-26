@@ -1,4 +1,8 @@
-package ru.yandex.practicum.sleeptracker;
+package ru.yandex.practicum.sleeptracker.functions;
+
+import ru.yandex.practicum.sleeptracker.result.ConstantsDescriptions;
+import ru.yandex.practicum.sleeptracker.result.SleepAnalysisResult;
+import ru.yandex.practicum.sleeptracker.model.SleepingSession;
 
 import java.util.List;
 
@@ -10,6 +14,6 @@ public class MaxDurationFunction implements SleepAnalysisFunction {
                 .mapToLong(SleepingSession::getDurationMinutes)
                 .max()
                 .orElse(0);
-        return new SleepAnalysisResult(AnalysisDescriptions.MAX_DURATION, max);
+        return new SleepAnalysisResult(ConstantsDescriptions.MAX_DURATION, max);
     }
 }

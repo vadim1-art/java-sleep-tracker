@@ -1,4 +1,9 @@
-package ru.yandex.practicum.sleeptracker;
+package ru.yandex.practicum.sleeptracker.functions;
+
+import ru.yandex.practicum.sleeptracker.model.Chronotype;
+import ru.yandex.practicum.sleeptracker.model.SleepingSession;
+import ru.yandex.practicum.sleeptracker.result.ConstantsDescriptions;
+import ru.yandex.practicum.sleeptracker.result.SleepAnalysisResult;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -36,7 +41,7 @@ public class ChronotypeFunction implements SleepAnalysisFunction {
 
         Chronotype result = maxTypes.size() == 1 ? maxTypes.get(0) : Chronotype.PIGEON;
 
-        return new SleepAnalysisResult(AnalysisDescriptions.CHRONOTYPE, result);
+        return new SleepAnalysisResult(ConstantsDescriptions.CHRONOTYPE, result);
     }
 
 
