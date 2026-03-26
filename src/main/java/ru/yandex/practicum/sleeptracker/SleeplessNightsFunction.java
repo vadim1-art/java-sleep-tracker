@@ -11,7 +11,7 @@ public class SleeplessNightsFunction implements SleepAnalysisFunction {
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {
         if (sessions.isEmpty()) {
-            return new SleepAnalysisResult("Бессонные ночи", 0);
+            return new SleepAnalysisResult(AnalysisDescriptions.SLEEPLESS_NIGHTS, 0);
         }
 
         LocalDateTime firstStart = sessions.stream()
@@ -24,13 +24,10 @@ public class SleeplessNightsFunction implements SleepAnalysisFunction {
                 .orElseThrow();
 
         LocalDate firstNightDate = firstStart.toLocalDate();
-        if (firstStart.toLocalTime().isAfter(LocalTime.of(6, 0))) {
+        if (firstStart.toLocalTime().isAfter(LocalTime.NOON)) {
             firstNightDate = firstNightDate.plusDays(1);
         }
         LocalDate lastNightDate = lastEnd.toLocalDate();
-        if (lastEnd.toLocalTime().isBefore(LocalTime.of(0, 0))) {
-            lastNightDate = lastNightDate.minusDays(1);
-        }
 
         Stream<LocalDate> nightDates = firstNightDate.datesUntil(lastNightDate.plusDays(1));
 
@@ -43,6 +40,6 @@ public class SleeplessNightsFunction implements SleepAnalysisFunction {
                 })
                 .count();
 
-        return new SleepAnalysisResult("Бессонные ночи", sleeplessNights);
+        return new SleepAnalysisResult(AnalysisDescriptions.SLEEPLESS_NIGHTS, sleeplessNights);
     }
 }

@@ -10,6 +10,6 @@ public class MinDurationFunction implements SleepAnalysisFunction {
                 .mapToLong(SleepingSession::getDurationMinutes)
                 .min()
                 .orElse(0);
-        return new SleepAnalysisResult("Минимальная продолжительность сессии (минуты)", min);
+        return new SleepAnalysisResult(AnalysisDescriptions.MIN_DURATION, min);
     }
 }

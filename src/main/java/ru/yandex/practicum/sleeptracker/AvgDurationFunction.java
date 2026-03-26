@@ -10,7 +10,7 @@ public class AvgDurationFunction implements SleepAnalysisFunction {
                 .mapToLong(SleepingSession::getDurationMinutes)
                 .average()
                 .orElse(0.0);
-        return new SleepAnalysisResult("Средняя продолжительность сессии (минуты)",
+        return new SleepAnalysisResult(AnalysisDescriptions.AVG_DURATION,
                 String.format("%.2f", avg));
     }
 }

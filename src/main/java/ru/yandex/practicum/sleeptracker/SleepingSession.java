@@ -30,9 +30,6 @@ public class SleepingSession {
         return quality;
     }
 
-    /**
-     * Возвращает продолжительность сессии в минутах.
-     */
     public long getDurationMinutes() {
         return ChronoUnit.MINUTES.between(start, end);
     }

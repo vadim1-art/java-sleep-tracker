@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 public class SleepTrackerApp {
 
     private static final List<SleepAnalysisFunction> ANALYSIS_FUNCTIONS = Arrays.asList(
@@ -23,7 +24,7 @@ public class SleepTrackerApp {
 
     public static void main(String[] args) {
         if (args.length < 1) {
-            System.err.println("Использование: java SleepTrackerApp <файл_лога_сна>");
+            System.err.println("Использование: java SleepTrackerApp");
             System.exit(1);
         }
 

@@ -9,6 +9,11 @@ import java.util.stream.Collectors;
 
 
 public class ChronotypeFunction implements SleepAnalysisFunction {
+    private static final LocalTime OWL_START = LocalTime.of(23, 0);
+    private static final LocalTime OWL_END = LocalTime.of(9, 0);
+    private static final LocalTime LARK_START = LocalTime.of(22, 0);
+    private static final LocalTime LARK_END = LocalTime.of(7, 0);
+
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {
         List<SleepingSession> nightSessions = sessions.stream()
@@ -31,7 +36,7 @@ public class ChronotypeFunction implements SleepAnalysisFunction {
 
         Chronotype result = maxTypes.size() == 1 ? maxTypes.get(0) : Chronotype.PIGEON;
 
-        return new SleepAnalysisResult("Хронотип пользователя", result);
+        return new SleepAnalysisResult(AnalysisDescriptions.CHRONOTYPE, result);
     }
 
 
@@ -39,8 +44,8 @@ public class ChronotypeFunction implements SleepAnalysisFunction {
         LocalTime startTime = session.getStart().toLocalTime();
         LocalTime endTime = session.getEnd().toLocalTime();
 
-        boolean isOwl = startTime.isAfter(LocalTime.of(23, 0)) && endTime.isAfter(LocalTime.of(9, 0));
-        boolean isLark = startTime.isBefore(LocalTime.of(22, 0)) && endTime.isBefore(LocalTime.of(7, 0));
+        boolean isOwl = startTime.isAfter(OWL_START) && endTime.isAfter(OWL_END);
+        boolean isLark = startTime.isBefore(LARK_START) && endTime.isBefore(LARK_END);
 
         if (isOwl) return Chronotype.OWL;
         if (isLark) return Chronotype.LARK;

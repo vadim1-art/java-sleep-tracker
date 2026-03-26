@@ -9,6 +9,6 @@ public class BadQualityCountFunction implements SleepAnalysisFunction {
         long count = sessions.stream()
                 .filter(s -> s.getQuality() == Quality.BAD)
                 .count();
-        return new SleepAnalysisResult("Количество сессий с плохим качеством", count);
+        return new SleepAnalysisResult(AnalysisDescriptions.BAD_QUALITY_COUNT, count);
     }
 }
